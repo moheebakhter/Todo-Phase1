@@ -9,7 +9,8 @@ def print_menu():
     print("3. Mark Task as Completed")
     print("4. Update Task")
     print("5. Delete Task")
-    print("6. Exit")
+    print("6. Mark Task as Incomplete")  # ✅ NEW
+    print("7. Exit")                     # ✅ SHIFTED
     print("----------------")
 
 
@@ -47,6 +48,20 @@ def complete_task(task_service: TaskService):
         task = task_service.complete_task(task_id)
         if task:
             print(f"Task {task_id} marked as completed.")
+        else:
+            print("Task not found.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+
+# ✅ NEW FUNCTION
+def mark_incomplete(task_service: TaskService):
+    """Handles marking a task as incomplete."""
+    try:
+        task_id = int(input("Enter task ID to mark as incomplete: "))
+        task = task_service.mark_incomplete(task_id)
+        if task:
+            print(f"Task {task_id} marked as pending.")
         else:
             print("Task not found.")
     except ValueError:
@@ -102,7 +117,9 @@ def main():
             update_task(task_service)
         elif choice == "5":
             delete_task(task_service)
-        elif choice == "6":
+        elif choice == "6":                 # ✅ NEW
+            mark_incomplete(task_service)
+        elif choice == "7":                 # ✅ EXIT
             print("Exiting...")
             break
         else:

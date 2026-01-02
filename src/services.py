@@ -31,6 +31,14 @@ class TaskService:
             task.status = TaskStatus.COMPLETED
         return task
 
+    # ✅ NEW METHOD (INCOMPLETE)
+    def mark_incomplete(self, task_id: int) -> Task | None:
+        """Marks a task as incomplete (pending)."""
+        task = self._tasks.get(task_id)
+        if task:
+            task.status = TaskStatus.PENDING
+        return task
+
     def update_task(self, task_id: int, new_title: str, new_description: str) -> Task | None:
         """Updates a task's title and description."""
         task = self._tasks.get(task_id)
