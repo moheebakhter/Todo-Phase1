@@ -29,9 +29,14 @@
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+*GATE: Must pass before proceeding. All checks must be ✅.*
 
-[Gates determined based on constitution file]
+- [ ] **Spec-Driven**: Does this plan originate from an approved specification?
+- [ ] **Agentic Workflow**: Will all code be generated via agent instructions?
+- [ ] **Clean Code**: Does the proposed structure promote readable, maintainable code with clear separation of concerns?
+- [ ] **Beginner-Friendly CLI**: Is the planned user interaction simple and intuitive?
+- [ ] **Ephemeral Storage**: Does the plan rely only on in-memory storage, with no files or databases?
+- [ ] **Minimalism**: Is the plan free of external frameworks and unnecessary complexity?
 
 ## Project Structure
 
@@ -48,51 +53,17 @@ specs/[###-feature]/
 ```
 
 ### Source Code (repository root)
-<!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
--->
-
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# Per the constitution, the project must follow this structure.
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+└── # services, models, cli entry point, etc.
 
 tests/
-├── contract/
 ├── integration/
 └── unit/
-
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: The project will use a standard `src/` and `tests/` layout as mandated by the constitution.
 
 ## Complexity Tracking
 

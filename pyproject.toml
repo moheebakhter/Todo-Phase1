@@ -1,0 +1,31 @@
+[project]
+name = "todo_cli"
+version = "0.1.0"
+description = "A simple in-memory Todo CLI application."
+readme = "README.md"
+requires-python = ">=3.13"
+
+[project.scripts]
+todo = "src.main:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+# ----------------------------
+# ✅ ADDED FOR SRC-LAYOUT PACKAGING (DO NOT CHANGE ANYTHING ELSE)
+# ----------------------------
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
